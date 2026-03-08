@@ -130,4 +130,45 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // 5. Menú Hamburguesa para Móviles
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navbarMenu = document.querySelector('.navbar-menu');
+
+    if (mobileToggle && navbarMenu) {
+        // Abrir/cerrar menú al hacer click en la hamburguesa
+        mobileToggle.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+        });
+
+        // Cerrar el menú al hacer click en cualquier enlace interno
+        const navLinks = navbarMenu.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navbarMenu.classList.remove('active');
+            });
+        });
+    }
+
+    // 6. Botón de Volver Arriba
+    const backToTop = document.getElementById('backToTop');
+
+    if (backToTop) {
+        // Mostrar u ocultar el botón basado en el scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // Volver arriba al hacer click suavemente
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 });
