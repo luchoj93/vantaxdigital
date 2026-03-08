@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (backToTop) {
         // Mostrar u ocultar el botón basado en el scroll
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
+            if (window.scrollY > 50) {
                 backToTop.classList.add('show');
             } else {
                 backToTop.classList.remove('show');
