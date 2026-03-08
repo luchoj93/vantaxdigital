@@ -319,11 +319,35 @@ ul {
     .grid-4 {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .hero {
+        padding: 100px 48px;
+    }
+
+    .footer {
+        padding: 40px 48px;
+    }
 }
 
 @media (max-width: 768px) {
     .navbar-menu {
         display: none;
+    }
+
+    .hero {
+        padding: 80px 24px;
+        min-height: 70vh;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 24px;
+        padding: 40px 24px;
+        text-align: center;
+    }
+
+    .copyright {
+        flex-direction: column;
     }
 }
 
@@ -345,6 +369,11 @@ ul {
 
     .hero-actions {
         flex-direction: column;
+    }
+
+    .nav-btn {
+        display: none;
+        /* Ocultar botón de presupuesto en navbar si la pantalla es muy pequeña */
     }
 }
 
