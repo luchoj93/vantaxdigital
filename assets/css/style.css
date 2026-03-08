@@ -60,6 +60,7 @@ ul {
 
 /* --- UTILITIES --- */
 .container {
+    width: 100%;
     max-width: var(--container-width);
     margin: 0 auto;
 }
@@ -296,7 +297,7 @@ ul {
     background-blend-mode: multiply;
     background-size: cover;
     background-position: center;
-    padding: 100px 120px;
+    padding: var(--section-padding);
 }
 
 /* Faux background blur to emulate the figma design */
