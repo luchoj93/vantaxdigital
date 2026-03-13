@@ -13,6 +13,12 @@
     --accent-primary: #2DD4BF;
     /* Mint green */
     --accent-secondary: #22A882;
+    /* Stitch Variables */
+    --stitch-bg-dark: #18161C;
+    --stitch-accent: #2EE1B2;
+    --stitch-text-gray: #ABAEB7;
+    --stitch-border: rgba(255, 255, 255, 0.1);
+
 
     /* Typography */
     --font-main: 'Inter', sans-serif;
@@ -882,4 +888,69 @@ ul {
     color: var(--text-secondary);
     font-size: 14px;
     gap: 10px;
+}
+/* --- STITCH INTEGRATION --- */
+.stitch-hero {
+    background-color: var(--stitch-bg-dark);
+    background-image: linear-gradient(to right, var(--stitch-bg-dark) 0%, var(--stitch-bg-dark) 30%, transparent 100%), url('../images/stitch-hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+}
+
+.stitch-accent-text {
+    color: var(--stitch-accent);
+}
+
+.stitch-badge {
+    background: rgba(46, 225, 178, 0.1);
+    color: var(--stitch-accent);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 24px;
+}
+
+.stitch-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--stitch-border);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 40px;
+    transition: all 0.3s ease;
+}
+
+.stitch-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--stitch-accent);
+    transform: translateY(-8px);
+}
+
+.stitch-btn-primary {
+    background: var(--stitch-accent);
+    color: var(--stitch-bg-dark);
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.stitch-btn-primary:hover {
+    box-shadow: 0 0 30px rgba(46, 225, 178, 0.4);
+    transform: scale(1.02);
+}
+
+.stitch-hero-inner {
+    background-color: var(--stitch-bg-dark);
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 0;
 }
