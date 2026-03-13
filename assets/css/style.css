@@ -182,15 +182,61 @@ ul {
 .navbar-menu {
     display: flex;
     gap: 32px;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative;
 }
 
 .nav-link {
     font-size: 1rem;
     font-weight: 500;
     color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .nav-link:hover {
+    color: var(--accent-primary);
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+    min-width: 240px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.nav-item:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-link {
+    display: block;
+    padding: 10px 16px;
+    color: var(--text-secondary);
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    transition: all 0.2s ease;
+}
+
+.dropdown-link:hover {
+    background-color: rgba(45, 212, 191, 0.1);
     color: var(--accent-primary);
 }
 
@@ -293,11 +339,23 @@ ul {
     align-items: center;
     position: relative;
     overflow: hidden;
-    background-image: linear-gradient(rgba(11, 11, 14, 0.55), rgba(11, 11, 14, 0.55)), url(../images/herobackground.jpg);
+    background-image: linear-gradient(rgba(11, 11, 14, 0.55), rgba(11, 11, 14, 0.55)), url('/assets/images/herobackground.jpg');
     background-blend-mode: multiply;
     background-size: cover;
     background-position: center;
     padding: var(--section-padding);
+}
+
+/* Inner Page Hero (Shorter) */
+.hero-inner {
+    min-height: 60vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-inner .hero-content {
+    max-width: 800px;
 }
 
 /* Faux background blur to emulate the figma design */
