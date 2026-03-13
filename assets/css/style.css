@@ -468,14 +468,15 @@ ul {
 /* --- PROCESS METHODOLOGY SECTION --- */
 .process-step {
     position: relative;
-    padding-top: 24px;
-    text-align: left;
+    padding-top: 40px;
+    text-align: center;
 }
 
 .step-number {
     position: absolute;
-    top: -60px;
-    left: -20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 8rem;
     font-weight: 800;
     color: rgba(255, 255, 255, 0.03);
