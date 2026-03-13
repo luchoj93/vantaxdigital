@@ -635,12 +635,14 @@ ul {
 }
 
 .faq-icon {
-    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: transform var(--transition-fast);
 }
 
 .faq-item.active .faq-icon {
-    transform: rotate(180deg);
+    transform: rotate(-180deg);
 }
 
 .faq-answer {
