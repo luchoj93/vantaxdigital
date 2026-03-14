@@ -43,7 +43,7 @@ function buildNavHTML(activePage = '') {
   return `
   <nav class="navbar" id="mainNavbar">
     <div class="container navbar-container">
-      <a href="../../index.html" class="navbar-brand">
+      <a href="../../public/index.html" class="navbar-brand">
         <img src="${logoSrc}" alt="VantaxDigital Logo" class="navbar-logo">
       </a>
       <ul class="navbar-menu" id="navbarMenu">
