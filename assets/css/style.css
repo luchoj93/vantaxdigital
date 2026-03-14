@@ -828,3 +828,61 @@ ul {
     font-size: 14px;
     gap: 10px;
 }
+
+/* --- DROPDOWN NAVIGATION (Home) --- */
+.has-dropdown { position: relative; }
+.has-dropdown .nav-link { display: flex; align-items: center; gap: 4px; }
+.has-dropdown svg { transition: transform 0.2s ease; }
+.has-dropdown:hover svg { transform: rotate(180deg); }
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    background-color: #1A1A20;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 8px;
+    min-width: 220px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 200;
+}
+.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+.dropdown-item {
+    display: block;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.dropdown-item:hover {
+    background-color: rgba(45, 212, 191, 0.08);
+    color: var(--accent-primary);
+}
+
+/* --- CLICKABLE SERVICE CARDS --- */
+.card.card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+.card.card-link:hover .card-cta { color: var(--accent-primary); }
+
+.card-cta {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+}

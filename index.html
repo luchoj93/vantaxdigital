@@ -24,11 +24,23 @@
             </a>
             <ul class="navbar-menu">
                 <li><a href="#esencia" class="nav-link">Esencia</a></li>
-                <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li class="has-dropdown">
+                    <a href="#servicios" class="nav-link">Servicios
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pages/desarrollo-web.html" class="dropdown-item">Desarrollo Web</a></li>
+                        <li><a href="pages/apps-software.html" class="dropdown-item">Apps & Software</a></li>
+                        <li><a href="pages/seo.html" class="dropdown-item">SEO & Posicionamiento</a></li>
+                        <li><a href="pages/social-media.html" class="dropdown-item">Social Media</a></li>
+                        <li><a href="pages/partner-agencias.html" class="dropdown-item">Partner Agencias</a></li>
+                    </ul>
+                </li>
                 <li><a href="#metodologia" class="nav-link">Metodología</a></li>
-                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="pages/nosotros.html" class="nav-link">Nosotros</a></li>
+                <li><a href="pages/contacto.html" class="nav-link">Contacto</a></li>
             </ul>
-            <a href="#contacto" class="btn btn-primary nav-btn">Solicitar Presupuesto</a>
+            <a href="pages/contacto.html" class="btn btn-primary nav-btn">Solicitar Presupuesto</a>
             <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -139,26 +151,30 @@
                     digital.
                 </p>
                 <div class="grid grid-4 text-left">
-                    <article class="card">
+                    <a href="pages/desarrollo-web.html" class="card card-link">
                         <img class="service-icon" src="assets/images/servicio1.png" alt="servicio1" loading="lazy">
                         <h3 class="card-title">Desarrollo Web</h3>
                         <p class="card-text">Sitios corporativos y e-commerce optimizados para conversión.</p>
-                    </article>
-                    <article class="card">
+                        <span class="card-cta">Ver servicio →</span>
+                    </a>
+                    <a href="pages/apps-software.html" class="card card-link">
                         <img class="service-icon" src="assets/images/servicio2.png" alt="servicio2" loading="lazy">
                         <h3 class="card-title">Apps Móviles</h3>
                         <p class="card-text">Experiencias nativas e híbridas de alto rendimiento (iOS y Android).</p>
-                    </article>
-                    <article class="card">
+                        <span class="card-cta">Ver servicio →</span>
+                    </a>
+                    <a href="pages/seo.html" class="card card-link">
                         <img class="service-icon" src="assets/images/servicio3.png" alt="servicio3" loading="lazy">
                         <h3 class="card-title">SEO Técnico</h3>
                         <p class="card-text">Optimizaciones avanzadas para dominar los buscadores.</p>
-                    </article>
-                    <article class="card">
+                        <span class="card-cta">Ver servicio →</span>
+                    </a>
+                    <a href="pages/social-media.html" class="card card-link">
                         <img class="service-icon" src="assets/images/servicio4.png" alt="servicio4" loading="lazy">
                         <h3 class="card-title">Social Media</h3>
                         <p class="card-text">Estrategias de contenido y pauta que generan comunidad y ventas.</p>
-                    </article>
+                        <span class="card-cta">Ver servicio →</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -203,10 +219,10 @@
                 <div class="banner-content">
                     <h2 class="banner-title">Partner para Agencias</h2>
                     <p class="banner-text">Somos tu brazo ejecutor técnico. Ayudamos a agencias de marketing a escalar
-                        su capacidad operativa sin riesgos.</p>
+                        su capacidad operativa sin costes fijos ni riesgos.</p>
                 </div>
                 <div class="banner-action">
-                    <a href="#contacto" class="btn banner-btn">Trabaja con Nosotros</a>
+                    <a href="pages/partner-agencias.html" class="btn banner-btn">Conocer el Modelo Partner</a>
                 </div>
             </div>
         </section>
