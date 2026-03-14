@@ -9,7 +9,7 @@
  */
 
 const NAV_LINKS = [
-  { label: 'Inicio',      href: '../index.html' },
+  { label: 'Inicio',      href: '../../public/index.html' },
   { label: 'Servicios',   href: '#', dropdown: [
       { label: 'Desarrollo Web',   href: 'desarrollo-web.html' },
       { label: 'Apps & Software',  href: 'apps-software.html' },
@@ -23,7 +23,7 @@ const NAV_LINKS = [
 
 function buildNavHTML(activePage = '') {
   const logoSrc = '../assets/images/logo.png';
-  const iconSrc = '../assets/images/favicon.svg';
+  const iconSrc = '../assets/icons/favicon.svg';
 
   const linksHTML = NAV_LINKS.map(link => {
     if (link.dropdown) {

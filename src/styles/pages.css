@@ -422,7 +422,7 @@ img { max-width: 100%; height: auto; }
 .banner-container::after {
   content: '';
   position: absolute; inset: 0;
-  background-image: url('../images/bannertexture.png');
+  background-image: url('../assets/images/bannertexture.png');
   background-size: auto 100%;
   background-position: top right;
   background-repeat: no-repeat;
