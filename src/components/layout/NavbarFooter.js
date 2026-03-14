@@ -9,7 +9,7 @@
  */
 
 const NAV_LINKS = [
-  { label: 'Inicio',      href: '../../index.html' },
+  { label: 'Inicio',      href: '../../public/index.html' },
   { label: 'Servicios',   href: '#', dropdown: [
       { label: 'Desarrollo Web',   href: 'desarrollo-web.html' },
       { label: 'Apps & Software',  href: 'apps-software.html' },
