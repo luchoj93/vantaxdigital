@@ -167,22 +167,36 @@ img { max-width: 100%; height: auto; }
 /* Dropdown */
 .has-dropdown { position: relative; }
 .has-dropdown.open .chevron-down { transform: rotate(180deg); }
+
+/* 
+ * FIX GAP BUG: top:100% + padding-top:12px.
+ * The mouse never leaves the hover area while crossing the visual gap.
+ */
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 12px);
+  top: 100%; 
   left: 50%;
-  transform: translateX(-50%);
-  background-color: #1A1A20;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-md);
-  padding: 8px;
-  min-width: 200px;
+  transform: translateX(-50%) translateY(-6px);
+  padding: 12px 6px 6px 6px; /* top padding creates the bridge */
+  min-width: 220px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease, transform 0.2s ease;
-  transform: translateX(-50%) translateY(-6px);
   z-index: 100;
 }
+
+/* Inner box background panel */
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  inset: 12px 0 0 0; /* matches top padding */
+  background-color: #1A1A20;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  z-index: -1;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
 .has-dropdown.open .dropdown-menu {
   opacity: 1;
   pointer-events: auto;
@@ -196,6 +210,8 @@ img { max-width: 100%; height: auto; }
   font-weight: 500;
   color: var(--text-secondary);
   transition: background-color var(--transition-fast), color var(--transition-fast);
+  position: relative; /* stay clickable above ::before */
+  z-index: 1;
 }
 .dropdown-item:hover, .dropdown-item.active {
   background-color: rgba(45, 212, 191, 0.08);
