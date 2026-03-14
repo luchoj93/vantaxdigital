@@ -343,8 +343,7 @@ ul {
 
 .emphasis {
     font-style: italic;
-    font-weight: bold;
-    color: #2DD4BF
+    color: var(--accent-primary);
 }
 
 .hero-subtitle {
