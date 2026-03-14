@@ -1,3 +1,6 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
 /* --- DESIGN SYSTEM & VARIABLES --- */
 :root {
     /* Colors - Dark Theme */
@@ -15,6 +18,7 @@
     --accent-secondary: #22A882;
 
     /* Typography */
+    --font-heading: 'Montserrat', sans-serif;
     --font-main: 'Inter', sans-serif;
 
     /* Layout */
@@ -92,8 +96,10 @@ ul {
 
 /* Typography */
 .section-title {
-    font-size: 3rem;
-    font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    line-height: 1.15;
     margin-bottom: 24px;
 }
 
@@ -274,9 +280,10 @@ ul {
 }
 
 .card-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 16px;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 14px;
 }
 
 .card-text {
@@ -293,7 +300,7 @@ ul {
     align-items: center;
     position: relative;
     overflow: hidden;
-    background-image: linear-gradient(rgba(11, 11, 14, 0.55), rgba(11, 11, 14, 0.55)), url(../images/herobackground.jpg);
+    background-image: linear-gradient(rgba(11, 11, 14, 0.55), rgba(11, 11, 14, 0.55)), url(../assets/images/herobackground.jpg);
     background-blend-mode: multiply;
     background-size: cover;
     background-position: center;
@@ -322,9 +329,10 @@ ul {
 
 
 .hero-title {
-    font-size: 3.5rem;
-    line-height: 1.2;
-    font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-weight: 900;
+    line-height: 1.1;
     margin-bottom: 24px;
 }
 
@@ -338,8 +346,7 @@ ul {
 
 .emphasis {
     font-style: italic;
-    font-weight: bold;
-    color: #2DD4BF
+    color: var(--accent-primary);
 }
 
 .hero-subtitle {
@@ -488,10 +495,11 @@ ul {
 }
 
 .step-title {
+    font-family: var(--font-heading);
     color: var(--accent-primary);
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 16px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 14px;
     position: relative;
     z-index: 1;
 }
@@ -527,7 +535,7 @@ ul {
     top: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../images/bannertexture.png');
+    background-image: url('../assets/images/bannertexture.png');
     background-size: auto 100%;
     /* Para que alcance a cubrir la altura o se mantenga estético */
     background-position: top right;
@@ -545,10 +553,10 @@ ul {
 }
 
 .banner-title {
-    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
     font-weight: 900;
     color: var(--bg-card);
-    /* Dark text on mint green background */
     margin-bottom: 12px;
     line-height: 1.2;
 }
@@ -827,4 +835,78 @@ ul {
     color: var(--text-secondary);
     font-size: 14px;
     gap: 10px;
+}
+
+/* --- DROPDOWN NAVIGATION (Home) --- */
+.has-dropdown { position: relative; }
+.has-dropdown .nav-link { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+.has-dropdown svg { transition: transform 0.2s ease; }
+.has-dropdown:hover svg, .has-dropdown:focus-within svg { transform: rotate(180deg); }
+
+/*
+ * FIX GAP BUG: top:100% + padding-top:12px instead of top:calc(100%+12px).
+ * The menu element starts right at the bottom of the trigger, so the mouse
+ * never leaves the hover area while crossing the visual gap.
+ */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-4px);
+    padding: 12px 6px 6px 6px; /* top padding = visual gap, no dead zone */
+    min-width: 230px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    z-index: 200;
+}
+/* Inner box — the visible panel */
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    inset: 12px 0 0 0; /* matches the top padding */
+    background-color: #1A1A20;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    z-index: -1;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+.has-dropdown:hover .dropdown-menu,
+.has-dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+.dropdown-item {
+    display: block;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: background-color 0.2s ease, color 0.2s ease;
+    position: relative; /* sit above the ::before panel */
+    z-index: 1;
+}
+.dropdown-item:hover {
+    background-color: rgba(45, 212, 191, 0.08);
+    color: var(--accent-primary);
+}
+
+/* --- CLICKABLE SERVICE CARDS --- */
+.card.card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+.card.card-link:hover .card-cta { color: var(--accent-primary); }
+
+.card-cta {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
 }
