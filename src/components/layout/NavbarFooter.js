@@ -1,56 +1,34 @@
 'use strict';
 
 /**
- * NavbarFooter.js
+ * components.js
  * Renders shared Navbar and Footer into every page.
- * Usage: include this script + call initSharedComponents('index.html', { isRoot: true })
+ * Usage: include this script + call renderNav() and renderFooter()
+ * from the page's own script, OR simply include the script and both
+ * components auto-inject on DOMContentLoaded.
  */
 
-function getNavLinks(isRoot) {
-  const rootPath = isRoot ? '' : '../../';
-  const pagesPath = isRoot ? 'src/pages/' : '';
+const NAV_LINKS = [
+  { label: 'Inicio',      href: '../../index.html' },
+  { label: 'Servicios',   href: '#', dropdown: [
+      { label: 'Desarrollo Web',   href: 'desarrollo-web.html' },
+      { label: 'Apps & Software',  href: 'apps-software.html' },
+      { label: 'SEO',              href: 'seo.html' },
+      { label: 'Social Media',     href: 'social-media.html' },
+      { label: 'Partner Agencias', href: 'partner-agencias.html' },
+  ]},
+  { label: 'Nosotros',    href: 'nosotros.html' },
+  { label: 'Contacto',    href: 'contacto.html' },
+];
 
-  const links = [];
+function buildNavHTML(activePage = '') {
+  const logoSrc = '../assets/images/logo.png';
+  const iconSrc = '../assets/icons/favicon.svg';
 
-  // Home specific links vs Inner pages links
-  if (isRoot) {
-    links.push({ label: 'Esencia', href: '#esencia' });
-  } else {
-    links.push({ label: 'Inicio', href: `${rootPath}index.html` });
-  }
-
-  links.push({
-    label: 'Servicios', href: isRoot ? '#servicios' : '#', dropdown: [
-      { label: 'Desarrollo Web', href: `${pagesPath}desarrollo-web.html` },
-      { label: 'Apps & Software', href: `${pagesPath}apps-software.html` },
-      { label: 'SEO', href: `${pagesPath}seo.html` },
-      { label: 'Social Media', href: `${pagesPath}social-media.html` },
-      { label: 'Partner Agencias', href: `${pagesPath}partner-agencias.html` },
-    ]
-  });
-
-  if (isRoot) {
-    links.push({ label: 'Metodología', href: '#metodologia' });
-  }
-
-  links.push({ label: 'Nosotros', href: `${pagesPath}nosotros.html` });
-  links.push({ label: 'Contacto', href: `${pagesPath}contacto.html` });
-
-  return links;
-}
-
-function buildNavHTML(activePage, isRoot) {
-  const assetsPath = isRoot ? 'src/assets/' : '../assets/';
-  const pagesPath = isRoot ? 'src/pages/' : '';
-  const rootPath = isRoot ? '' : '../../';
-  
-  const logoSrc = `${assetsPath}images/logo.png`;
-  const navLinks = getNavLinks(isRoot);
-
-  const linksHTML = navLinks.map(link => {
+  const linksHTML = NAV_LINKS.map(link => {
     if (link.dropdown) {
       const dropItems = link.dropdown.map(d =>
-        `<li><a href="${d.href}" class="dropdown-item ${activePage === d.href.split('/').pop() ? 'active' : ''}">${d.label}</a></li>`
+        `<li><a href="${d.href}" class="dropdown-item ${activePage === d.href ? 'active' : ''}">${d.label}</a></li>`
       ).join('');
       return `<li class="has-dropdown">
         <a href="${link.href}" class="nav-link">${link.label}
@@ -59,19 +37,19 @@ function buildNavHTML(activePage, isRoot) {
         <ul class="dropdown-menu">${dropItems}</ul>
       </li>`;
     }
-    return `<li><a href="${link.href}" class="nav-link ${activePage === link.href.split('/').pop() ? 'active' : ''}">${link.label}</a></li>`;
+    return `<li><a href="${link.href}" class="nav-link ${activePage === link.href ? 'active' : ''}">${link.label}</a></li>`;
   }).join('');
 
   return `
   <nav class="navbar" id="mainNavbar">
     <div class="container navbar-container">
-      <a href="${rootPath}index.html" class="navbar-brand">
+      <a href="../../index.html" class="navbar-brand">
         <img src="${logoSrc}" alt="VantaxDigital Logo" class="navbar-logo">
       </a>
       <ul class="navbar-menu" id="navbarMenu">
         ${linksHTML}
       </ul>
-      <a href="${pagesPath}contacto.html" class="btn btn-primary nav-btn">Solicitar Presupuesto</a>
+      <a href="contacto.html" class="btn btn-primary nav-btn">Solicitar Presupuesto</a>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -83,24 +61,21 @@ function buildNavHTML(activePage, isRoot) {
   </nav>`;
 }
 
-function buildFooterHTML(isRoot) {
-  const assetsPath = isRoot ? 'src/assets/' : '../assets/';
-  const pagesPath = isRoot ? 'src/pages/' : '';
-  
+function buildFooterHTML() {
   return `
   <footer class="footer">
     <div class="container footer-container">
       <div class="copyright">
-        <img class="logo" src="${assetsPath}images/icon.png" alt="Logo" width="35">
+        <img class="logo" src="../assets/images/icon.png" alt="Logo" width="35">
         <p class="card-text">© <span id="currentYear"></span> VantaxDigital. Todos los derechos reservados.</p>
       </div>
       <nav class="footer-nav" aria-label="Páginas de servicio">
-        <a href="${pagesPath}desarrollo-web.html">Desarrollo Web</a>
-        <a href="${pagesPath}apps-software.html">Apps & Software</a>
-        <a href="${pagesPath}seo.html">SEO</a>
-        <a href="${pagesPath}social-media.html">Social Media</a>
-        <a href="${pagesPath}partner-agencias.html">Partner Agencias</a>
-        <a href="${pagesPath}nosotros.html">Nosotros</a>
+        <a href="desarrollo-web.html">Desarrollo Web</a>
+        <a href="apps-software.html">Apps & Software</a>
+        <a href="seo.html">SEO</a>
+        <a href="social-media.html">Social Media</a>
+        <a href="partner-agencias.html">Partner Agencias</a>
+        <a href="nosotros.html">Nosotros</a>
       </nav>
       <div class="avisos">
         <a href="#">Privacidad</a>
@@ -116,16 +91,14 @@ function buildFooterHTML(isRoot) {
   </button>`;
 }
 
-function initSharedComponents(activePage, options = {}) {
-  const isRoot = options.isRoot || false;
-
+function initSharedComponents(activePage) {
   // Inject Navbar
   const navTarget = document.getElementById('navbar-placeholder');
-  if (navTarget) navTarget.innerHTML = buildNavHTML(activePage, isRoot);
+  if (navTarget) navTarget.innerHTML = buildNavHTML(activePage);
 
   // Inject Footer
   const footTarget = document.getElementById('footer-placeholder');
-  if (footTarget) footTarget.innerHTML = buildFooterHTML(isRoot);
+  if (footTarget) footTarget.innerHTML = buildFooterHTML();
 
   // Dynamic year
   const yearEl = document.getElementById('currentYear');
@@ -160,7 +133,7 @@ function initSharedComponents(activePage, options = {}) {
     item.addEventListener('mouseleave', () => item.classList.remove('open'));
     const toggle = item.querySelector('.nav-link');
     toggle && toggle.addEventListener('click', e => {
-      if (window.innerWidth <= 900) {
+      if (window.innerWidth <= 768) {
         e.preventDefault();
         item.classList.toggle('open');
       }

@@ -23,7 +23,7 @@
   --font-main:    'Inter', sans-serif;
 
   --container-width:  1200px;
-  --section-padding:  80px 24px;
+  --section-padding:  100px 24px;
   --border-radius-md: 12px;
   --border-radius-lg: 24px;
   --transition-fast:  0.2s ease;
@@ -51,6 +51,7 @@ img { max-width: 100%; height: auto; }
   width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
+  padding: 0;
 }
 .section        { padding: var(--section-padding); }
 .bg-alt         { background-color: var(--bg-card); }
@@ -231,7 +232,7 @@ img { max-width: 100%; height: auto; }
 
 /* --- PAGE HERO (inner pages) --- */
 .page-hero {
-  padding: 100px 24px 80px;
+  padding: var(--section-padding);
   position: relative;
   overflow: hidden;
   background: linear-gradient(160deg, #0B0B0E 60%, rgba(45, 212, 191, 0.06) 100%);
@@ -616,9 +617,12 @@ img { max-width: 100%; height: auto; }
   .banner-container { flex-direction: column; text-align: center; padding: 40px 32px; }
   .banner-content { max-width: 100%; }
   .contacto-info { padding-right: 0; }
+  
+  .page-hero { padding: 100px 48px; }
+  .footer { padding: 40px 48px; }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .mobile-toggle { display: block; }
   .nav-btn { display: none; }
   .navbar-menu {
@@ -632,33 +636,14 @@ img { max-width: 100%; height: auto; }
     transition: all 0.3s ease;
   }
   .navbar-menu.active { opacity: 1; pointer-events: auto; transform: translateY(0); }
-  
-  /* Mobile Dropdown Fix */
-  .has-dropdown .nav-link {
-    justify-content: center;
-  }
-  .dropdown-menu { 
-    position: relative; 
-    transform: none !important;
-    left: 0 !important;
-    top: 0 !important;
-    margin: 12px auto 0;
-    padding: 12px;
-    max-width: 90%;
-    display: none;
-  }
-  .has-dropdown.open .dropdown-menu,
-  .has-dropdown:hover .dropdown-menu,
-  .has-dropdown:focus-within .dropdown-menu { 
-    display: block; 
-    opacity: 1; 
-    pointer-events: auto; 
-  }
-  .dropdown-item { text-align: center; }
+  .dropdown-menu { position: static; transform: none; opacity: 1; pointer-events: auto; }
+  .has-dropdown.open .dropdown-menu { display: block; }
+  .has-dropdown:not(.open) .dropdown-menu { display: none; }
 
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .contacto-grid { grid-template-columns: 1fr; }
-  .page-hero { padding: 80px 24px 60px; }
+  .page-hero { padding: 80px 24px; }
+  .footer { padding: 40px 24px; }
   .section-title { font-size: 1.875rem; }
   .footer-container { flex-direction: column; text-align: center; }
   .footer-nav { justify-content: center; }
