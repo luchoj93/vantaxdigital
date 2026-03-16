@@ -847,7 +847,11 @@ ul {
 }
 
 /* --- DROPDOWN NAVIGATION (Home) --- */
-.has-dropdown { position: relative; }
+.has-dropdown { 
+    position: relative; 
+    display: flex;
+    align-items: center;
+}
 .has-dropdown .nav-link { display: flex; align-items: center; gap: 4px; cursor: pointer; }
 .has-dropdown svg { transition: transform 0.2s ease; }
 .has-dropdown:hover svg, .has-dropdown:focus-within svg { transform: rotate(180deg); }
@@ -861,27 +865,28 @@ ul {
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translateX(-50%) translateY(-4px);
-    padding: 12px 6px 6px 6px; /* top padding = visual gap, no dead zone */
-    min-width: 230px;
+    transform: translateX(-50%) translateY(-10px);
+    padding: 15px 0 0 0;
+    width: 240px;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.18s ease, transform 0.18s ease;
-    z-index: 200;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
 }
-/* Inner box — the visible panel */
+
+/* Inner box background panel */
 .dropdown-menu::before {
     content: '';
     position: absolute;
-    inset: 12px 0 0 0; /* matches the top padding */
+    inset: 15px 0 0 0;
     background-color: #1A1A20;
     border: 1px solid var(--border-color);
-    border-radius: 12px;
+    border-radius: var(--border-radius-md);
     z-index: -1;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
-.has-dropdown:hover .dropdown-menu,
-.has-dropdown:focus-within .dropdown-menu {
+
+.has-dropdown.open .dropdown-menu {
     opacity: 1;
     pointer-events: auto;
     transform: translateX(-50%) translateY(0);
@@ -941,9 +946,10 @@ ul {
 
 .slider-track {
     display: flex;
-    gap: 50px;
+    align-items: center;
     width: max-content;
-    animation: scroll-logos 30s linear infinite;
+    white-space: nowrap;
+    animation: scroll-logos 40s linear infinite;
 }
 
 .slider-track:hover {
@@ -951,16 +957,18 @@ ul {
 }
 
 .logo-group {
-    display: flex;
-    gap: 50px;
+    display: inline-flex;
     align-items: center;
-    padding-right: 50px;
+    gap: 80px;
+    padding-right: 80px;
+    flex-shrink: 0;
 }
 
 .logo-group img {
-    height: 32px;
-    width: 120px;
+    height: 35px;
+    width: 140px; /* Fixed width for stability */
     object-fit: contain;
+    flex-shrink: 0;
     pointer-events: none;
     user-select: none;
     filter: brightness(0) invert(1);

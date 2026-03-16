@@ -133,22 +133,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. Menú Hamburguesa para Móviles
     const mobileToggle = document.getElementById('mobileToggle');
-    const navbarMenu = document.querySelector('.navbar-menu');
+    const navbarMenu = document.getElementById('navbarMenu');
 
     if (mobileToggle && navbarMenu) {
         // Abrir/cerrar menú al hacer click en la hamburguesa
         mobileToggle.addEventListener('click', () => {
             navbarMenu.classList.toggle('active');
+            // Cerrar cualquier dropdown abierto al cerrar el menú
+            if (!navbarMenu.classList.contains('active')) {
+                navbarMenu.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('open'));
+            }
         });
 
-        // Cerrar el menú al hacer click en cualquier enlace interno
-        const navLinks = navbarMenu.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
+        // Cerrar el menú al hacer click en enlaces normales o items del dropdown
+        navbarMenu.querySelectorAll('.nav-link, .dropdown-item').forEach(link => {
             link.addEventListener('click', () => {
                 navbarMenu.classList.remove('active');
+                navbarMenu.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('open'));
             });
         });
     }
+
+    // 5.1 Dropdown toggle para móvil
+    document.querySelectorAll('.has-dropdown').forEach(item => {
+        item.addEventListener('mouseenter', () => item.classList.add('open'));
+        item.addEventListener('mouseleave', () => item.classList.remove('open'));
+        const toggle = item.querySelector('.nav-link');
+        toggle && toggle.addEventListener('click', e => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                item.classList.toggle('open');
+            }
+        });
+    });
 
     // 6. Botón de Volver Arriba
     const backToTop = document.getElementById('backToTop');
