@@ -417,7 +417,11 @@ ul {
         opacity: 1;
         pointer-events: auto;
         display: none;
-        padding-top: 10px;
+        background-color: #1A1A20;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        margin: 10px 24px 0 24px;
+        padding: 10px;
     }
 
     .dropdown-menu::before {

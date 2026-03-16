@@ -569,6 +569,26 @@ img { max-width: 100%; height: auto; }
   .navbar-menu.active { opacity: 1; pointer-events: auto; transform: translateY(0); }
   .has-dropdown .nav-link { justify-content: center; }
 
+  .dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    display: none;
+    background-color: #1A1A20;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin: 10px 24px 0 24px;
+    padding: 10px;
+  }
+  .dropdown-menu::before { display: none; }
+  .has-dropdown:hover .dropdown-menu,
+  .has-dropdown:focus-within .dropdown-menu,
+  .has-dropdown.open .dropdown-menu {
+    display: block;
+    transform: none;
+  }
+
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .contacto-grid { grid-template-columns: 1fr; }
   .page-hero { padding: 80px 24px 60px; }

@@ -100,3 +100,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.card, .process-step, .stat-item, .tech-pill').forEach(el => observer.observe(el));
 });
+
+// --- TYPEWRITER NATIVE IMPLEMENTATION ---
+function initTypewriter() {
+    const typewriters = document.querySelectorAll('.typewriter');
+    if (!typewriters.length) return;
+
+    typewriters.forEach(el => {
+        const textAttr = el.getAttribute('data-texts');
+        if (!textAttr) return;
+        
+        let texts = [];
+        try { texts = JSON.parse(textAttr); } catch(e) { return; }
+        if (!texts.length) return;
+        
+        const speed = parseInt(el.getAttribute('data-speed')) || 100;
+        const deleteSpeed = parseInt(el.getAttribute('data-delete-speed')) || 50;
+        const delay = parseInt(el.getAttribute('data-delay')) || 1500;
+        const loop = el.hasAttribute('data-loop') && el.getAttribute('data-loop') !== 'false';
+        const cursorChar = el.getAttribute('data-cursor') || '|';
+
+        el.innerHTML = `<span class="typewriter-text"></span><span class="typewriter-cursor">${cursorChar}</span>`;
+        const textSpan = el.querySelector('.typewriter-text');
+        
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentText = texts[textIndex] || "";
+            
+            if (isDeleting) {
+                charIndex--;
+            } else {
+                charIndex++;
+            }
+            
+            textSpan.textContent = currentText.substring(0, charIndex);
+            
+            let typeSpeed = isDeleting ? deleteSpeed : speed;
+            
+            if (!isDeleting && charIndex === currentText.length) {
+                if (!loop && textIndex === texts.length - 1) return;
+                typeSpeed = delay; // pause at end
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typeSpeed = 500; // pause before typing next word
+            }
+            
+            setTimeout(type, typeSpeed);
+        }
+        
+        type();
+    });
+}
+document.addEventListener('DOMContentLoaded', initTypewriter);
