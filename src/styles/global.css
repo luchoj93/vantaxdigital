@@ -336,22 +336,6 @@ ul {
     margin-bottom: 24px;
 }
 
-/* Text Disperse Animation (Vanilla) */
-.disperse-container {
-    cursor: default;
-}
-.disperse-char {
-    display: inline-block;
-    transition: transform 0.75s cubic-bezier(0.33, 1, 0.68, 1);
-    transform-origin: center;
-    position: relative;
-    z-index: 10;
-}
-.disperse-container:hover .disperse-char {
-    transform: translate(var(--dx), var(--dy)) rotate(var(--dr));
-    z-index: 20;
-}
-
 .muted-title {
     color: #2DD4BF;
     font-size: 12px;
@@ -421,6 +405,30 @@ ul {
         opacity: 1;
         pointer-events: auto;
         transform: translateY(0);
+    }
+
+    .has-dropdown .nav-link {
+        justify-content: center;
+    }
+
+    .dropdown-menu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        pointer-events: auto;
+        display: none;
+        padding-top: 10px;
+    }
+
+    .dropdown-menu::before {
+        display: none;
+    }
+
+    .has-dropdown:hover .dropdown-menu,
+    .has-dropdown:focus-within .dropdown-menu,
+    .has-dropdown.open .dropdown-menu {
+        display: block;
+        transform: none;
     }
 
     .hero {

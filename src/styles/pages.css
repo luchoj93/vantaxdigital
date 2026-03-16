@@ -567,9 +567,7 @@ img { max-width: 100%; height: auto; }
     transition: all 0.3s ease;
   }
   .navbar-menu.active { opacity: 1; pointer-events: auto; transform: translateY(0); }
-  .dropdown-menu { position: static; transform: none; opacity: 1; pointer-events: auto; }
-  .has-dropdown.open .dropdown-menu { display: block; }
-  .has-dropdown:not(.open) .dropdown-menu { display: none; }
+  .has-dropdown .nav-link { justify-content: center; }
 
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .contacto-grid { grid-template-columns: 1fr; }
