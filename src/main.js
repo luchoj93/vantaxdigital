@@ -171,4 +171,64 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- Text Disperse Animation (Vanilla implementation) ---
+    const transforms = [
+        { x: -0.8, y: -0.6, rotationZ: -29 },
+        { x: -0.2, y: -0.4, rotationZ: -6 },
+        { x: -0.05, y: 0.1, rotationZ: 12 },
+        { x: -0.05, y: -0.1, rotationZ: -9 },
+        { x: -0.1, y: 0.55, rotationZ: 3 },
+        { x: 0, y: -0.1, rotationZ: 9 },
+        { x: 0, y: 0.15, rotationZ: -12 },
+        { x: 0, y: 0.15, rotationZ: -17 },
+        { x: 0, y: -0.65, rotationZ: 9 },
+        { x: 0.1, y: 0.4, rotationZ: 12 },
+        { x: 0, y: -0.15, rotationZ: -9 },
+        { x: 0.2, y: 0.15, rotationZ: 12 },
+        { x: 0.8, y: 0.6, rotationZ: 20 },
+    ];
+
+    function wrapCharacters(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            const text = node.textContent;
+            if (!text.trim()) return node;
+            const fragment = document.createDocumentFragment();
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+                if (char === ' ' || char === '\n' || char === '\t') {
+                    fragment.appendChild(document.createTextNode(char));
+                } else {
+                    const span = document.createElement('span');
+                    span.textContent = char;
+                    span.classList.add('disperse-char');
+                    fragment.appendChild(span);
+                }
+            }
+            return fragment;
+        } else if (node.nodeType === Node.ELEMENT_NODE && node.nodeName !== 'BR') {
+            const childNodes = Array.from(node.childNodes);
+            childNodes.forEach(child => {
+                node.replaceChild(wrapCharacters(child), child);
+            });
+            return node;
+        }
+        return node;
+    }
+
+    const h1s = document.querySelectorAll('.hero-title, .page-hero-title');
+    h1s.forEach(h1 => {
+        const childNodes = Array.from(h1.childNodes);
+        childNodes.forEach(child => h1.replaceChild(wrapCharacters(child), child));
+
+        let charIndex = 0;
+        h1.querySelectorAll('.disperse-char').forEach(charSpan => {
+            const t = transforms[charIndex % transforms.length];
+            charSpan.style.setProperty('--dx', t.x + 'em');
+            charSpan.style.setProperty('--dy', t.y + 'em');
+            charSpan.style.setProperty('--dr', t.rotationZ + 'deg');
+            charIndex++;
+        });
+        h1.classList.add('disperse-container');
+    });
 });
