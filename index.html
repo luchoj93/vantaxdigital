@@ -17,40 +17,7 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="container navbar-container">
-            <a href="index.html" class="navbar-brand">
-                <img src="src/assets/images/logo.png" alt="VantaxDigital Logo" class="navbar-logo">
-            </a>
-            <ul class="navbar-menu">
-                <li><a href="#esencia" class="nav-link">Esencia</a></li>
-                <li class="has-dropdown">
-                    <a href="#servicios" class="nav-link">Servicios
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="src/pages/desarrollo-web.html" class="dropdown-item">Desarrollo Web</a></li>
-                        <li><a href="src/pages/apps-software.html" class="dropdown-item">Apps & Software</a></li>
-                        <li><a href="src/pages/seo.html" class="dropdown-item">SEO & Posicionamiento</a></li>
-                        <li><a href="src/pages/social-media.html" class="dropdown-item">Social Media</a></li>
-                        <li><a href="src/pages/partner-agencias.html" class="dropdown-item">Partner Agencias</a></li>
-                    </ul>
-                </li>
-                <li><a href="#metodologia" class="nav-link">Metodología</a></li>
-                <li><a href="src/pages/nosotros.html" class="nav-link">Nosotros</a></li>
-                <li><a href="src/pages/contacto.html" class="nav-link">Contacto</a></li>
-            </ul>
-            <a href="src/pages/contacto.html" class="btn btn-primary nav-btn">Solicitar Presupuesto</a>
-            <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-            </button>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <!-- HERO SECTION -->
     <header class="hero">
@@ -371,6 +338,12 @@
         </svg>
     </button>
 
+    <script src="src/components/layout/NavbarFooter.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initSharedComponents('index.html', { isRoot: true });
+        });
+    </script>
     <script src="src/main.js"></script>
 </body>
 
