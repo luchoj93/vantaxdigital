@@ -142,7 +142,7 @@ function initSharedComponents(activePage, options = { isRoot: false }) {
     item.addEventListener('mouseleave', () => item.classList.remove('open'));
     const toggle = item.querySelector('.nav-link');
     toggle && toggle.addEventListener('click', e => {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 820) {
         e.preventDefault();
         item.classList.toggle('open');
       }
