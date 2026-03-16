@@ -148,6 +148,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Cerrar el menú al hacer click en enlaces normales o items del dropdown
         navbarMenu.querySelectorAll('.nav-link, .dropdown-item').forEach(link => {
             link.addEventListener('click', () => {
+                // Si el link es un disparador de dropdown en móvil, no cerramos el menú principal todavía
+                const isDropdownToggle = link.parentElement.classList.contains('has-dropdown');
+                if (isDropdownToggle && window.innerWidth <= 768) {
+                    return;
+                }
                 navbarMenu.classList.remove('active');
                 navbarMenu.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('open'));
             });

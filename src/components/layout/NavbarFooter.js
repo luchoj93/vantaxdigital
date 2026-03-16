@@ -17,6 +17,8 @@ const NAV_LINKS = [
       { label: 'Social Media',     href: 'social-media.html' },
       { label: 'Partner Agencias', href: 'partner-agencias.html' },
   ]},
+  { label: 'Esencia',     href: '../../index.html#esencia' },
+  { label: 'Metodología', href: '../../index.html#metodologia' },
   { label: 'Nosotros',    href: 'nosotros.html' },
   { label: 'Contacto',    href: 'contacto.html' },
 ];
@@ -123,7 +125,15 @@ function initSharedComponents(activePage) {
   if (mobileToggle && navbarMenu) {
     mobileToggle.addEventListener('click', () => navbarMenu.classList.toggle('active'));
     navbarMenu.querySelectorAll('.nav-link, .dropdown-item').forEach(link => {
-      link.addEventListener('click', () => navbarMenu.classList.remove('active'));
+      link.addEventListener('click', () => {
+        // Dropdown toggle check for mobile
+        const isDropdownToggle = link.parentElement.classList.contains('has-dropdown');
+        if (isDropdownToggle && window.innerWidth <= 768) {
+          return;
+        }
+        navbarMenu.classList.remove('active');
+        navbarMenu.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('open'));
+      });
     });
   }
 
