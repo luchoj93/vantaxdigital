@@ -618,7 +618,7 @@ img { max-width: 100%; height: auto; }
   .contacto-info { padding-right: 0; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .mobile-toggle { display: block; }
   .nav-btn { display: none; }
   .navbar-menu {

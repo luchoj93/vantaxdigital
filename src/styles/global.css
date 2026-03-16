@@ -379,7 +379,7 @@ ul {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .mobile-toggle {
         display: block;
     }

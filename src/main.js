@@ -1,12 +1,6 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 0. Update dynamic copyright year
-    const currentYearEl = document.getElementById('currentYear');
-    if (currentYearEl) {
-        currentYearEl.textContent = new Date().getFullYear();
-    }
-
     // 1. Acordeón de FAQ (Preguntas Frecuentes)
     const faqQuestions = document.querySelectorAll('.faq-question');
 
@@ -85,19 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Efecto visual suave de la barra de navegación al hacer scroll
-    const navbar = document.querySelector('.navbar');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.backgroundColor = 'rgba(11, 11, 14, 0.98)';
-            navbar.style.borderBottomColor = 'rgba(45, 212, 191, 0.2)'; // Borde de acento
-        } else {
-            navbar.style.backgroundColor = 'rgba(11, 11, 14, 0.9)';
-            navbar.style.borderBottomColor = 'var(--border-color)';
-        }
-    });
-
     // 4. Funcionalidad de Compartir
     const shareBtn = document.getElementById('shareBtn');
     if (shareBtn) {
@@ -128,47 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
             } catch (err) {
                 console.error('Error al compartir:', err);
             }
-        });
-    }
-
-    // 5. Menú Hamburguesa para Móviles
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navbarMenu = document.querySelector('.navbar-menu');
-
-    if (mobileToggle && navbarMenu) {
-        // Abrir/cerrar menú al hacer click en la hamburguesa
-        mobileToggle.addEventListener('click', () => {
-            navbarMenu.classList.toggle('active');
-        });
-
-        // Cerrar el menú al hacer click en cualquier enlace interno
-        const navLinks = navbarMenu.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navbarMenu.classList.remove('active');
-            });
-        });
-    }
-
-    // 6. Botón de Volver Arriba
-    const backToTop = document.getElementById('backToTop');
-
-    if (backToTop) {
-        // Mostrar u ocultar el botón basado en el scroll
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
-            }
-        });
-
-        // Volver arriba al hacer click suavemente
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
         });
     }
 });
