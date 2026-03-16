@@ -385,6 +385,72 @@ img { max-width: 100%; height: auto; }
 }
 .tech-pill svg { width: 16px; height: 16px; color: var(--accent-primary); }
 
+/* --- LOGO CLOUD (INFINITE SLIDER) --- */
+.logo-cloud {
+  position: relative;
+  margin: 0 auto;
+  max-width: 48rem;
+  padding: 2rem 0;
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  overflow: hidden;
+  margin-top: 1rem;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.logo-cloud::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  border-top: 1px solid var(--border-color);
+  pointer-events: none;
+}
+
+.logo-cloud::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  border-bottom: 1px solid var(--border-color);
+  pointer-events: none;
+}
+
+.logo-cloud-slider {
+  display: flex;
+  width: max-content;
+  gap: 42px;
+  animation: logo-cloud-scroll 25s linear infinite;
+  align-items: center;
+}
+
+.logo-cloud-slider:hover {
+  animation-play-state: paused;
+}
+
+@keyframes logo-cloud-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 21px)); }
+}
+
+.logo-cloud-slider img {
+  height: 24px;
+  width: auto;
+  pointer-events: auto;
+  user-select: none;
+  filter: brightness(0) invert(1);
+  opacity: 0.6;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.logo-cloud-slider img:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
 /* --- STATS --- */
 .stats-row { display: flex; gap: 40px; flex-wrap: wrap; }
 .stat-item { text-align: left; }
