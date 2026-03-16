@@ -604,3 +604,97 @@ img { max-width: 100%; height: auto; }
   .banner-container { padding: 32px 24px; }
   .highlight-box { padding: 32px 24px; }
 }
+
+/* --- LOGO CLOUD (REACT NATIVE PORT) --- */
+.logo-cloud-section {
+    padding: 80px 24px;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.logo-cloud-wrapper {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    padding: 60px 0;
+    margin-top: 40px;
+    background: linear-gradient(90deg, rgba(34, 168, 130, 0.03) 0%, transparent 20%, transparent 80%, rgba(34, 168, 130, 0.03) 100%);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.slider-track {
+    display: flex;
+    gap: 50px;
+    width: max-content;
+    animation: scroll-logos 30s linear infinite;
+}
+
+.slider-track:hover {
+    animation-play-state: paused;
+}
+
+.logo-group {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    padding-right: 50px;
+}
+
+.logo-group img {
+    height: 32px;
+    width: 120px;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+    filter: brightness(0) invert(1);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.logo-group img:hover {
+    opacity: 1;
+}
+
+.blur-edge {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 200px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.blur-left {
+    left: 0;
+    background: linear-gradient(90deg, var(--bg-main) 0%, transparent 100%);
+}
+
+.blur-right {
+    right: 0;
+    background: linear-gradient(270deg, var(--bg-main) 0%, transparent 100%);
+}
+
+@keyframes scroll-logos {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* --- TYPEWRITER EFFECT --- */
+.typewriter-text {
+    position: relative;
+    display: inline-block;
+}
+
+.typewriter-cursor {
+    animation: blink 1s step-end infinite;
+    color: var(--accent-primary);
+    margin-left: 2px;
+    font-weight: 400;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
