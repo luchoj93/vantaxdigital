@@ -406,6 +406,22 @@ ul {
         pointer-events: auto;
         transform: translateY(0);
     }
+    
+    /* Mobile Dropdown Fix */
+    .dropdown-menu { 
+        position: relative; 
+        transform: none !important;
+        left: 0 !important;
+        top: 0 !important;
+        opacity: 1; 
+        pointer-events: auto; 
+        margin: 12px auto 0;
+        padding: 12px;
+        max-width: 90%;
+    }
+    .has-dropdown.open .dropdown-menu { display: block; }
+    .has-dropdown:not(.open) .dropdown-menu { display: none; }
+    .dropdown-item { text-align: center; }
 
     .hero {
         padding: 80px 24px;
