@@ -430,7 +430,7 @@ ul {
         outline: none !important;
         border-radius: 12px;
         box-shadow: none;
-        padding: 8px 6px;
+        padding: 12px 6px 6px 6px;
         margin: auto;
         min-width: auto;
     }
