@@ -131,18 +131,24 @@ function initSharedComponents(activePage, options = { isRoot: false }) {
   const navbarMenu = document.getElementById('navbarMenu');
   if (mobileToggle && navbarMenu) {
     mobileToggle.addEventListener('click', () => navbarMenu.classList.toggle('active'));
+    
     navbarMenu.querySelectorAll('.nav-link, .dropdown-item').forEach(link => {
-      link.addEventListener('click', () => navbarMenu.classList.remove('active'));
+      link.addEventListener('click', (e) => {
+        const isDropdownToggle = link.closest('.has-dropdown');
+        if (!isDropdownToggle) {
+          navbarMenu.classList.remove('active');
+        }
+      });
     });
   }
 
-  // Dropdown hover / click
+  // Dropdown click for mobile
+  const isMobile = () => window.matchMedia('(max-width: 820px)').matches;
+  
   document.querySelectorAll('.has-dropdown').forEach(item => {
-    item.addEventListener('mouseenter', () => item.classList.add('open'));
-    item.addEventListener('mouseleave', () => item.classList.remove('open'));
     const toggle = item.querySelector('.nav-link');
     toggle && toggle.addEventListener('click', e => {
-      if (window.innerWidth <= 820) {
+      if (isMobile()) {
         e.preventDefault();
         item.classList.toggle('open');
       }
