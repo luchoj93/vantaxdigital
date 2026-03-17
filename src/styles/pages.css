@@ -267,7 +267,7 @@ img {
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(-6px);
-  padding: 12px 6px 6px 6px;
+  padding: 6px;
   /* top padding creates the bridge */
   min-width: 220px;
   opacity: 0;
@@ -280,7 +280,7 @@ img {
 .dropdown-menu::before {
   content: '';
   position: absolute;
-  inset: 12px 0 0 0;
+  inset: 6px 0 0 0;
   /* matches top padding */
   background-color: #1A1A20;
   border-radius: var(--border-radius-md);
@@ -1148,7 +1148,7 @@ img {
     outline: none !important;
     border-radius: 12px;
     box-shadow: none;
-    padding: 12px 6px 6px 6px;
+    padding: 6px;
     margin: auto;
   }
 

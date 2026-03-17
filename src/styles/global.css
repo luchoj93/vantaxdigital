@@ -430,7 +430,7 @@ ul {
         outline: none !important;
         border-radius: 12px;
         box-shadow: none;
-        padding: 12px 6px 6px 6px;
+        padding: 6px;
         margin: auto;
         min-width: auto;
     }
@@ -921,7 +921,7 @@ ul {
     top: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(-4px);
-    padding: 12px 6px 6px 6px;
+    padding: 6px;
     /* top padding = visual gap, no dead zone */
     min-width: 230px;
     opacity: 0;
@@ -934,7 +934,7 @@ ul {
 .dropdown-menu::before {
     content: '';
     position: absolute;
-    inset: 12px 0 0 0;
+    inset: 6px 0 0 0;
     /* matches the top padding */
     background-color: #1A1A20;
     border: 1px solid var(--border-color);
