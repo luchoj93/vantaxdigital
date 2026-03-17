@@ -934,8 +934,10 @@ ul {
 .dropdown-menu::before {
     content: '';
     position: absolute;
-    inset: 6px 0 0 0;
-    /* matches the top padding */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background-color: #1A1A20;
     border: 1px solid var(--border-color);
     border-radius: 12px;
