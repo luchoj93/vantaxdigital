@@ -7,7 +7,7 @@
     <title>VantaxDigital | Desarrollo Web y Apps</title>
     <meta name="description"
         content="Especialistas en transformar ideas en productos digitales de alto impacto. Agilidad, escalabilidad y resultados garantizados.">
-    <link rel="stylesheet" href="src/styles/global.css">
+    <link rel="stylesheet" href="src/shared/styles/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -120,25 +120,25 @@
                     digital.
                 </p>
                 <div class="grid grid-4 text-left">
-                    <a href="src/pages/desarrollo-web.html" class="card card-link">
+                    <a href="src/features/desarrollo-web/desarrollo-web.html" class="card card-link">
                         <img class="service-icon" src="src/assets/images/servicio1.png" alt="servicio1" loading="lazy">
                         <h3 class="card-title">Desarrollo Web</h3>
                         <p class="card-text">Sitios corporativos y e-commerce optimizados para conversión.</p>
                         <span class="card-cta">Ver servicio →</span>
                     </a>
-                    <a href="src/pages/apps-software.html" class="card card-link">
+                    <a href="src/features/apps-software/apps-software.html" class="card card-link">
                         <img class="service-icon" src="src/assets/images/servicio2.png" alt="servicio2" loading="lazy">
                         <h3 class="card-title">Apps Móviles</h3>
                         <p class="card-text">Experiencias nativas e híbridas de alto rendimiento (iOS y Android).</p>
                         <span class="card-cta">Ver servicio →</span>
                     </a>
-                    <a href="src/pages/seo.html" class="card card-link">
+                    <a href="src/features/seo/seo.html" class="card card-link">
                         <img class="service-icon" src="src/assets/images/servicio3.png" alt="servicio3" loading="lazy">
                         <h3 class="card-title">SEO Técnico</h3>
                         <p class="card-text">Optimizaciones avanzadas para dominar los buscadores.</p>
                         <span class="card-cta">Ver servicio →</span>
                     </a>
-                    <a href="src/pages/social-media.html" class="card card-link">
+                    <a href="src/features/social-media/social-media.html" class="card card-link">
                         <img class="service-icon" src="src/assets/images/servicio4.png" alt="servicio4" loading="lazy">
                         <h3 class="card-title">Social Media</h3>
                         <p class="card-text">Estrategias de contenido y pauta que generan comunidad y ventas.</p>
@@ -191,7 +191,7 @@
                         su capacidad operativa sin costes fijos ni riesgos.</p>
                 </div>
                 <div class="banner-action">
-                    <a href="src/pages/partner-agencias.html" class="btn banner-btn">Conocer el Modelo Partner</a>
+                    <a href="src/features/partner-agencias/partner-agencias.html" class="btn banner-btn">Conocer el Modelo Partner</a>
                 </div>
             </div>
         </section>
@@ -322,13 +322,13 @@
     <div id="footer-placeholder"></div>
 
 
-    <script src="src/components/layout/NavbarFooter.js"></script>
+    <script src="src/app/layout/NavbarFooter.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             initSharedComponents('index.html', { isRoot: true });
         });
     </script>
-    <script src="src/main.js"></script>
+    <script src="src/app/main.js"></script>
 </body>
 
 </html>

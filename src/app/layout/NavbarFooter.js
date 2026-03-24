@@ -8,19 +8,19 @@
 const NAV_LINKS_CONFIG = [
   { label: 'Inicio',      href: 'index.html', isRootLink: true },
   { label: 'Servicios',   href: '#', dropdown: [
-      { label: 'Desarrollo Web',   href: 'desarrollo-web.html' },
-      { label: 'Apps & Software',  href: 'apps-software.html' },
-      { label: 'SEO',              href: 'seo.html' },
-      { label: 'Social Media',     href: 'social-media.html' },
-      { label: 'Partner Agencias', href: 'partner-agencias.html' },
+      { label: 'Desarrollo Web',   href: 'desarrollo-web/desarrollo-web.html' },
+      { label: 'Apps & Software',  href: 'apps-software/apps-software.html' },
+      { label: 'SEO',              href: 'seo/seo.html' },
+      { label: 'Social Media',     href: 'social-media/social-media.html' },
+      { label: 'Partner Agencias', href: 'partner-agencias/partner-agencias.html' },
   ]},
-  { label: 'Nosotros',    href: 'nosotros.html' },
-  { label: 'Contacto',    href: 'contacto.html' },
+  { label: 'Nosotros',    href: 'nosotros/nosotros.html' },
+  { label: 'Contacto',    href: 'contacto/contacto.html' },
 ];
 
 function buildNavHTML(activePage = '', isRoot = false) {
-  const assetPrefix = isRoot ? 'src/' : '../';
-  const pagePrefix = isRoot ? 'src/pages/' : '';
+  const assetPrefix = isRoot ? 'src/' : '../../';
+  const pagePrefix = isRoot ? 'src/features/' : '../';
   const rootPrefix = isRoot ? '' : '../../';
 
   const logoSrc = `${assetPrefix}assets/images/logo.png`;
@@ -66,8 +66,8 @@ function buildNavHTML(activePage = '', isRoot = false) {
 }
 
 function buildFooterHTML(isRoot = false) {
-  const assetPrefix = isRoot ? 'src/' : '../';
-  const pagePrefix = isRoot ? 'src/pages/' : '';
+  const assetPrefix = isRoot ? 'src/' : '../../';
+  const pagePrefix = isRoot ? 'src/features/' : '../';
 
   return `
   <footer class="footer">
@@ -77,12 +77,12 @@ function buildFooterHTML(isRoot = false) {
         <p class="card-text">© <span id="currentYear"></span> VantaxDigital. Todos los derechos reservados.</p>
       </div>
       <nav class="footer-nav" aria-label="Páginas de servicio">
-        <a href="${pagePrefix}desarrollo-web.html">Desarrollo Web</a>
-        <a href="${pagePrefix}apps-software.html">Apps & Software</a>
-        <a href="${pagePrefix}seo.html">SEO</a>
-        <a href="${pagePrefix}social-media.html">Social Media</a>
-        <a href="${pagePrefix}partner-agencias.html">Partner Agencias</a>
-        <a href="${pagePrefix}nosotros.html">Nosotros</a>
+        <a href="${pagePrefix}desarrollo-web/desarrollo-web.html">Desarrollo Web</a>
+        <a href="${pagePrefix}apps-software/apps-software.html">Apps & Software</a>
+        <a href="${pagePrefix}seo/seo.html">SEO</a>
+        <a href="${pagePrefix}social-media/social-media.html">Social Media</a>
+        <a href="${pagePrefix}partner-agencias/partner-agencias.html">Partner Agencias</a>
+        <a href="${pagePrefix}nosotros/nosotros.html">Nosotros</a>
       </nav>
       <div class="avisos">
         <a href="#">Privacidad</a>
