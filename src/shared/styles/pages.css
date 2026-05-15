@@ -2,9 +2,6 @@
    pages.css – Shared styles for all inner pages
    ============================================= */
 
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap');
-
 /* --- DESIGN TOKENS (same as home) --- */
 :root {
   --bg-main: #0B0B0E;
@@ -683,7 +680,7 @@ img {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('../assets/images/bannertexture.png');
+  background-image: url('../../assets/images/bannertexture.png');
   background-size: auto 100%;
   background-position: top right;
   background-repeat: no-repeat;

@@ -21,16 +21,17 @@ const NAV_LINKS_CONFIG = [
 function buildNavHTML(activePage = '', isRoot = false) {
   const assetPrefix = isRoot ? 'src/' : '../../';
   const pagePrefix = isRoot ? 'src/features/' : '../';
-  const rootPrefix = isRoot ? '' : '../../';
+  const rootIndex = isRoot ? './' : '../../../';
+  const logoHref = isRoot ? './' : '../../../';
 
-  const logoSrc = `${assetPrefix}assets/images/logo.png`;
+  const logoSrc = `${assetPrefix}assets/images/logo.webp`;
 
   const linksHTML = NAV_LINKS_CONFIG.map(link => {
-    const href = link.isRootLink ? `${rootPrefix}${link.href}` : (link.href === '#' ? '#' : `${pagePrefix}${link.href}`);
+    const href = link.isRootLink ? rootIndex : (link.href === '#' ? '#' : `${pagePrefix}${link.href}`);
     
     if (link.dropdown) {
       const dropItems = link.dropdown.map(d => {
-        const dHref = `${pagePrefix}${d.href}`;
+        const dHref = isRoot ? `src/features/${d.href}` : `../${d.href}`;
         return `<li><a href="${dHref}" class="dropdown-item ${activePage === d.href ? 'active' : ''}">${d.label}</a></li>`;
       }).join('');
       
@@ -47,13 +48,13 @@ function buildNavHTML(activePage = '', isRoot = false) {
   return `
   <nav class="navbar" id="mainNavbar">
     <div class="container navbar-container">
-      <a href="${rootPrefix}index.html" class="navbar-brand">
-        <img src="${logoSrc}" alt="VantaxDigital Logo" class="navbar-logo">
+      <a href="${logoHref}" class="navbar-brand">
+        <img src="${logoSrc}" alt="VantaxDigital Logo" class="navbar-logo" width="250" height="50">
       </a>
       <ul class="navbar-menu" id="navbarMenu">
         ${linksHTML}
       </ul>
-      <a href="${pagePrefix}contacto.html" class="btn btn-primary nav-btn">Solicitar Presupuesto</a>
+      <a href="${pagePrefix}contacto/contacto.html" class="btn btn-primary nav-btn" aria-label="Solicitar presupuesto — ir a página de contacto">Solicitar Presupuesto</a>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>

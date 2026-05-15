@@ -5,18 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VantaxDigital | Desarrollo Web y Apps</title>
-    <meta name="description"
-        content="Especialistas en transformar ideas en productos digitales de alto impacto. Agilidad, escalabilidad y resultados garantizados.">
+    <meta name="description" content="Especialistas en transformar ideas en productos digitales de alto impacto. Agilidad, escalabilidad y resultados garantizados.">
+    <meta name="keywords" content="desarrollo web, apps, SEO, marketing digital, e-commerce, VantaxDigital">
+    <meta name="author" content="VantaxDigital">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vantaxdigital.com/">
+    <meta name="theme-color" content="#0B0B0E">
+    <meta property="og:title" content="VantaxDigital | Desarrollo Web y Apps">
+    <meta property="og:description" content="Especialistas en transformar ideas en productos digitales de alto impacto.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vantaxdigital.com/">
+    <meta property="og:image" content="src/assets/images/logo.webp">
     <link rel="stylesheet" href="src/shared/styles/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;900&display=swap"></noscript>
     <link rel="icon" type="image/svg+xml" href="src/assets/icons/favicon.svg">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formsubmit.co;">
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
     <!-- NAVBAR -->
     <div id="navbar-placeholder"></div>
@@ -33,14 +43,14 @@
                     Agilidad, escalabilidad y resultados garantizados para empresas que miran al futuro.</p>
 
                 <div class="hero-actions">
-                    <a href="#contacto" class="btn btn-primary">Solicitar Presupuesto</a>
+                    <a href="#contacto" class="btn btn-primary" aria-label="Solicitar presupuesto — ir al formulario de contacto">Solicitar Presupuesto</a>
                     <a href="#portafolio" class="btn btn-outline">Ver Portafolio</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <!-- NUESTRA ESENCIA SECTION -->
         <section class="esencia section bg-card" id="esencia">
             <div class="container">
@@ -57,7 +67,7 @@
                 <div class="grid grid-2 essence-grid">
                     <article class="card essence-card">
                         <div class="card-icon">
-                            <img src="src/assets/images/esencia1.png" alt="esencia1" loading="lazy">
+                            <img src="src/assets/images/esencia1.png" alt="esencia1" loading="lazy" width="50" height="40">
                         </div>
                         <h3 class="card-title">Agilidad Extrema</h3>
                         <p class="card-text">Procesos optimizados y metodologías ágiles para entregas
@@ -66,7 +76,7 @@
                     </article>
                     <article class="card essence-card">
                         <div class="card-icon">
-                            <img src="src/assets/images/esencia2.png" alt="esencia2" loading="lazy">
+                            <img src="src/assets/images/esencia2.png" alt="esencia2" loading="lazy" width="50" height="40">
                         </div>
                         <h3 class="card-title">Especialización</h3>
                         <p class="card-text">Expertos dedicados a dominar las últimas tecnologías del
@@ -85,7 +95,7 @@
                     <article class="card text-center">
                         <div class="card-icon">
                             <!-- Icono Rentabilidad -->
-                            <img src="src/assets/images/beneficio1.png" alt="beneficio1" loading="lazy">
+                            <img src="src/assets/images/beneficio1.png" alt="beneficio1" loading="lazy" width="50" height="36">
                         </div>
                         <h3 class="card-title">Rentabilidad</h3>
                         <p class="card-text">Sin costes fijos de personal, paga solo por lo que necesitas con
@@ -94,7 +104,7 @@
                     <article class="card text-center">
                         <div class="card-icon">
                             <!-- Icono Calidad -->
-                            <img src="src/assets/images/beneficio2.png" alt="beneficio2" loading="lazy">
+                            <img src="src/assets/images/beneficio2.png" alt="beneficio2" loading="lazy" width="50" height="48">
                         </div>
                         <h3 class="card-title">Calidad de Agencia</h3>
                         <p class="card-text">Resultados de alto nivel técnico con la atención 100% personalizada de un
@@ -103,7 +113,7 @@
                     <article class="card text-center">
                         <div class="card-icon">
                             <!-- Icono Escalabilidad -->
-                            <img src="src/assets/images/beneficio3.png" alt="beneficio3" loading="lazy">
+                            <img src="src/assets/images/beneficio3.png" alt="beneficio3" loading="lazy" width="50" height="30">
                         </div>
                         <h3 class="card-title">Escalabilidad</h3>
                         <p class="card-text">Capacidad inmediata para absorber picos de trabajo y proyectos complejos
@@ -121,25 +131,25 @@
                 </p>
                 <div class="grid grid-4 text-left">
                     <a href="src/features/desarrollo-web/desarrollo-web.html" class="card card-link">
-                        <img class="service-icon" src="src/assets/images/servicio1.png" alt="servicio1" loading="lazy">
+                        <img class="service-icon" src="src/assets/images/servicio1.png" alt="servicio1" loading="lazy" width="35" height="35">
                         <h3 class="card-title">Desarrollo Web</h3>
                         <p class="card-text">Sitios corporativos y e-commerce optimizados para conversión.</p>
                         <span class="card-cta">Ver servicio →</span>
                     </a>
                     <a href="src/features/apps-software/apps-software.html" class="card card-link">
-                        <img class="service-icon" src="src/assets/images/servicio2.png" alt="servicio2" loading="lazy">
+                        <img class="service-icon" src="src/assets/images/servicio2.png" alt="servicio2" loading="lazy" width="35" height="35">
                         <h3 class="card-title">Apps Móviles</h3>
                         <p class="card-text">Experiencias nativas e híbridas de alto rendimiento (iOS y Android).</p>
                         <span class="card-cta">Ver servicio →</span>
                     </a>
                     <a href="src/features/seo/seo.html" class="card card-link">
-                        <img class="service-icon" src="src/assets/images/servicio3.png" alt="servicio3" loading="lazy">
+                        <img class="service-icon" src="src/assets/images/servicio3.png" alt="servicio3" loading="lazy" width="35" height="35">
                         <h3 class="card-title">SEO Técnico</h3>
                         <p class="card-text">Optimizaciones avanzadas para dominar los buscadores.</p>
                         <span class="card-cta">Ver servicio →</span>
                     </a>
                     <a href="src/features/social-media/social-media.html" class="card card-link">
-                        <img class="service-icon" src="src/assets/images/servicio4.png" alt="servicio4" loading="lazy">
+                        <img class="service-icon" src="src/assets/images/servicio4.png" alt="servicio4" loading="lazy" width="44" height="35">
                         <h3 class="card-title">Social Media</h3>
                         <p class="card-text">Estrategias de contenido y pauta que generan comunidad y ventas.</p>
                         <span class="card-cta">Ver servicio →</span>
@@ -260,13 +270,13 @@
                         <ul class="contacto-list">
                             <li>
                                 <span class="contacto-icon">
-                                    <img src="src/assets/images/mail.png" alt="mail">
+                                    <img src="src/assets/images/mail.png" alt="Icono de correo" width="20" height="16">
                                 </span>
                                 hola@vantaxdigital.com
                             </li>
                             <li>
                                 <span class="contacto-icon">
-                                    <img src="src/assets/images/location.png" alt="location">
+                                    <img src="src/assets/images/location.png" alt="Ubicación" width="20" height="25">
                                 </span>
                                 Donostia-San Sebastian, España / Remoto Global
                             </li>
@@ -322,13 +332,13 @@
     <div id="footer-placeholder"></div>
 
 
-    <script src="src/app/layout/NavbarFooter.js"></script>
+    <script src="src/app/layout/NavbarFooter.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             initSharedComponents('index.html', { isRoot: true });
         });
     </script>
-    <script src="src/app/main.js"></script>
+    <script src="src/app/main.js" defer></script>
 </body>
 
 </html>
