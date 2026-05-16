@@ -9,9 +9,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nosotros — ADN Vantax Digital</title>
   <meta name="description" content="Innovación constante, ejecución precisa. En Vantax Digital creemos que la tecnología debe ser invisible: eficiente, rápida y sin fricciones. Somos especialistas apasionados por el rendimiento técnico.">
-  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
-  <link rel="stylesheet" href="../../shared/styles/global.css">
-  <link rel="stylesheet" href="../../shared/styles/pages.css">
+  <link rel="icon" type="image/svg+xml" href="../../src/assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../src/styles/global.css">
+  <link rel="stylesheet" href="../../src/styles/pages.css">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://svgl.app; connect-src 'self' https://formsubmit.co;">
   <style>
     .valor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -33,7 +33,7 @@
     <section class="page-hero">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../../index.html">Inicio</a>
+          <a href="../../">Inicio</a>
           <span class="breadcrumb-sep">›</span>
           <span class="breadcrumb-current">Nosotros</span>
         </nav>
@@ -41,7 +41,7 @@
         <h1 class="page-hero-title">Innovación constante,<br><em>ejecución precisa.</em></h1>
         <p class="page-hero-sub">En Vantax Digital, creemos que la tecnología debe ser invisible: eficiente, rápida y sin fricciones. No somos una agencia tradicional; somos un equipo de especialistas apasionados por el rendimiento técnico.</p>
         <div class="hero-actions">
-          <a href="../contacto/contacto.html" class="btn btn-primary">Trabajemos juntos</a>
+          <a href="../contacto/" class="btn btn-primary">Trabajemos juntos</a>
           <a href="#esencia" class="btn btn-outline">Nuestra Esencia</a>
         </div>
       </div>
@@ -190,7 +190,7 @@
             <p class="banner-text">Tu próximo gran proyecto comienza con un "hola". Cuéntanos qué necesitas y te proponemos el mejor camino.</p>
           </div>
           <div class="banner-action">
-            <a href="../contacto/contacto.html" class="btn banner-btn">Hablemos</a>
+            <a href="../contacto/" class="btn banner-btn">Hablemos</a>
           </div>
         </div>
       </div>
@@ -200,12 +200,12 @@
 
   <div id="footer-placeholder"></div>
 
-  <script src="../../app/layout/NavbarFooter.js"></script>
+  <script src="../../src/scripts/navbar-footer.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      initSharedComponents('nosotros.html');
+      initSharedComponents('nosotros/', { isRoot: false });
     });
   </script>
-  <script src="../../shared/utils/page-helpers.js"></script>
+  <script src="../../src/scripts/main.js"></script>
 </body>
 </html>

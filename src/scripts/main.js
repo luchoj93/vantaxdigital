@@ -1,13 +1,5 @@
 'use strict';
 
-/**
- * pages.js
- * Shared page-level interactions:
- *   - FAQ accordion
- *   - Contact form AJAX submit
- *   - Share button
- */
-
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- FAQ Accordion ---
@@ -88,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Animate on scroll (simple IntersectionObserver) ---
+  // --- Animate on scroll (IntersectionObserver) ---
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {

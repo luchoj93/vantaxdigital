@@ -8,21 +8,21 @@
 const NAV_LINKS_CONFIG = [
   { label: 'Inicio',      href: 'index.html', isRootLink: true },
   { label: 'Servicios',   href: '#', dropdown: [
-      { label: 'Desarrollo Web',   href: 'desarrollo-web/desarrollo-web.html' },
-      { label: 'Apps & Software',  href: 'apps-software/apps-software.html' },
-      { label: 'SEO',              href: 'seo/seo.html' },
-      { label: 'Social Media',     href: 'social-media/social-media.html' },
-      { label: 'Partner Agencias', href: 'partner-agencias/partner-agencias.html' },
+      { label: 'Desarrollo Web',   href: 'desarrollo-web/' },
+      { label: 'Apps & Software',  href: 'apps-software/' },
+      { label: 'SEO',              href: 'seo/' },
+      { label: 'Social Media',     href: 'social-media/' },
+      { label: 'Partner Agencias', href: 'partner-agencias/' },
   ]},
-  { label: 'Nosotros',    href: 'nosotros/nosotros.html' },
-  { label: 'Contacto',    href: 'contacto/contacto.html' },
+  { label: 'Nosotros',    href: 'nosotros/' },
+  { label: 'Contacto',    href: 'contacto/' },
 ];
 
 function buildNavHTML(activePage = '', isRoot = false) {
-  const assetPrefix = isRoot ? 'src/' : '../../';
-  const pagePrefix = isRoot ? 'src/features/' : '../';
-  const rootIndex = isRoot ? './' : '../../../';
-  const logoHref = isRoot ? './' : '../../../';
+  const assetPrefix = isRoot ? 'src/' : '../../src/';
+  const pagePrefix = isRoot ? 'pages/' : '../';
+  const rootIndex = isRoot ? './' : '../../';
+  const logoHref = isRoot ? './' : '../../';
 
   const logoSrc = `${assetPrefix}assets/images/logo.webp`;
 
@@ -31,7 +31,7 @@ function buildNavHTML(activePage = '', isRoot = false) {
     
     if (link.dropdown) {
       const dropItems = link.dropdown.map(d => {
-        const dHref = isRoot ? `src/features/${d.href}` : `../${d.href}`;
+        const dHref = isRoot ? `pages/${d.href}` : `../${d.href}`;
         return `<li><a href="${dHref}" class="dropdown-item ${activePage === d.href ? 'active' : ''}">${d.label}</a></li>`;
       }).join('');
       
@@ -54,7 +54,7 @@ function buildNavHTML(activePage = '', isRoot = false) {
       <ul class="navbar-menu" id="navbarMenu">
         ${linksHTML}
       </ul>
-      <a href="${pagePrefix}contacto/contacto.html" class="btn btn-primary nav-btn" aria-label="Solicitar presupuesto — ir a página de contacto">Solicitar Presupuesto</a>
+      <a href="${pagePrefix}contacto/" class="btn btn-primary nav-btn" aria-label="Solicitar presupuesto — ir a página de contacto">Solicitar Presupuesto</a>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -67,8 +67,8 @@ function buildNavHTML(activePage = '', isRoot = false) {
 }
 
 function buildFooterHTML(isRoot = false) {
-  const assetPrefix = isRoot ? 'src/' : '../../';
-  const pagePrefix = isRoot ? 'src/features/' : '../';
+  const assetPrefix = isRoot ? 'src/' : '../../src/';
+  const pagePrefix = isRoot ? 'pages/' : '../';
 
   return `
   <footer class="footer">
@@ -78,12 +78,12 @@ function buildFooterHTML(isRoot = false) {
         <p class="card-text">© <span id="currentYear"></span> VantaxDigital. Todos los derechos reservados.</p>
       </div>
       <nav class="footer-nav" aria-label="Páginas de servicio">
-        <a href="${pagePrefix}desarrollo-web/desarrollo-web.html">Desarrollo Web</a>
-        <a href="${pagePrefix}apps-software/apps-software.html">Apps & Software</a>
-        <a href="${pagePrefix}seo/seo.html">SEO</a>
-        <a href="${pagePrefix}social-media/social-media.html">Social Media</a>
-        <a href="${pagePrefix}partner-agencias/partner-agencias.html">Partner Agencias</a>
-        <a href="${pagePrefix}nosotros/nosotros.html">Nosotros</a>
+        <a href="${pagePrefix}desarrollo-web/">Desarrollo Web</a>
+        <a href="${pagePrefix}apps-software/">Apps & Software</a>
+        <a href="${pagePrefix}seo/">SEO</a>
+        <a href="${pagePrefix}social-media/">Social Media</a>
+        <a href="${pagePrefix}partner-agencias/">Partner Agencias</a>
+        <a href="${pagePrefix}nosotros/">Nosotros</a>
       </nav>
       <div class="avisos">
         <a href="#">Privacidad</a>
